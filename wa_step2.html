@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <link href="base.css" rel="stylesheet" />
+    <style>
+      .headline {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .headline::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        display: block;
+        background: white;
+        width: 100%;
+        height: 100%;
+        transform: translateX(-101%);
+      }
+
+      .headline .label {
+        opacity: 0;
+      }
+
+      .slideX {
+        /*opacity: 0;*/
+      }
+    </style>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", async () => {
+        // 少しだけ待機
+        await new Promise((r) => setTimeout(r, 500));
+
+        {
+          const target = document.querySelectorAll(".headline");
+
+          // 見出し演出
+          target.forEach((el, index) => {
+            // あしらいとしての矩形
+            el.animate(
+              [
+                { transform: "translateX(-100%)" },
+                { transform: "translateX(100%)" },
+              ],
+              {
+                duration: 1000,
+                pseudoElement: "::before",
+                fill: "forwards",
+                easing: "cubic-bezier(0.65, 0, 0.35, 1)",
+                // 遅延で演出
+                delay: 100 * index
+              }
+            );
+
+            // 見出しのテキストは矩形が通り過ぎてから表示
+            el.querySelector(".label").animate(
+              [
+                {opacity: 0},
+                {opacity: 1},
+              ], {
+                duration: 30,
+                delay: 100 * index + 500,
+                fill: "forwards"
+              })
+          });
+        }
+
+        // 演出をもう一度再生（
+        setTimeout(() => { location.reload(); }, 5000);
+      });
+    </script>
+  </head>
+  <body>
+    <section>
+      <h1>
+        <div class="headline">
+          <span class="label">Google Material Design</span>
+        </div>
+      </h1>
+
+      <p class="slideX">
+        Material is a design system created by Google to help teams build
+        high-quality digital experiences for Android, iOS, Flutter, and the web.
+        <br />
+        Produced by Google.
+      </p>
+      <div class="buttonGroup">
+        <a href="#" class="button slideX">Website</a>
+      </div>
+    </section>
+
+    <section>
+      <h1>
+        <div class="headline">
+          <span class="label">Human Interface Guidelines</span>
+        </div>
+      </h1>
+
+      <p class="slideX">
+        People expect macOS apps to be intuitive, while simultaneously adaptable
+        to their workflow through customization and flexibility. Many apps offer
+        configurable preferences, customizable interfaces, and alternate ways of
+        completing tasks. Windows can often be resized and interface elements
+        hidden or repositioned. Tasks can be initiated from toolbars, menus,
+        controls, keyboard shortcuts, the Touch Bar, accessibility features, and
+        more. A flexible app facilitates learning through discoverability.
+      </p>
+
+      <div class="buttonGroup">
+        <a href="#" class="button slideX">iOS</a>
+        <a href="#" class="button slideX">macOS</a>
+      </div>
+    </section>
+
+    <section>
+      <h1>
+        <div class="headline"><span class="label">Spectrum</span></div>
+      </h1>
+
+      <p class="slideX">
+        Material is a design system created by Google to help teams build
+        high-quality digital experiences for Android, iOS, Flutter, and the web.
+        <br />
+        Produced by Google.
+      </p>
+      <div class="buttonGroup">
+        <a href="#" class="button slideX">Link 1</a>
+        <a href="#" class="button slideX">Link 1</a>
+        <a href="#" class="button slideX">Link 1</a>
+      </div>
+    </section>
+
+    <div></div>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ウェブ演出のサンプル | ICS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: sans-serif;
+        background: #333;
+        color: white;
+      }
+      .container {
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1/1;
+        border: none;
+        background: black;
+      }
+      a {
+        color: currentColor;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section>
+        <h1>Web Animations API</h1>
+        <h2>Step 1 : 静的なHTML</h2>
+        <iframe src="wa_step1.html"></iframe>
+        <p>
+          <a
+            href="https://github.com/ics-creative/220514_techfeed_conference_2022/blob/main/wa_step1.html"
+            >ソースコード</a
+          >
+        </p>
+      </section>
+      <section>
+        <h2>Step 2 : 見出し部分だけ演出</h2>
+        <iframe src="wa_step2.html"></iframe>
+        <p>
+          <a
+            href="https://github.com/ics-creative/220514_techfeed_conference_2022/blob/main//a_step2.html"
+            >ソースコード</a
+          >
+        </p>
+      </section>
+      <section>
+        <h2>Step 3 : 他の要素も演出を追加</h2>
+        <iframe src="wa_step3.html"></iframe>
+        <p>
+          <a
+            href="https://github.com/ics-creative/220514_techfeed_conference_2022/blob/main/wa_step3.html"
+            >ソースコード</a
+          >
+        </p>
+      </section>
+      <section>
+        <h1>GSAP version</h1>
+        <h2>JSライブラリGSAP（ジーサップ）で演出</h2>
+        <iframe src="gsap.html"></iframe>
+        <p>
+          <a
+            href="https://github.com/ics-creative/220514_techfeed_conference_2022/blob/main/gsap.html"
+            >ソースコード</a
+          >
+        </p>
+      </section>
+      <section>
+        <p>
+          <a
+            href="https://speakerdeck.com/clockmaker/css-for-develop-creative-website"
+            target="_blank"
+            >登壇資料へのリンク</a
+          >
+        </p>
+        <p>
+          <a
+            href="https://twitter.com/clockmaker/status/1525338778931728386"
+            target="_blank"
+            >デモサイト（録画）</a
+          >
+        </p>
+      </section>
+    </div>
+  </body>
+</html>
